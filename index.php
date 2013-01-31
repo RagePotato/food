@@ -76,7 +76,7 @@ if (check_post_any('food_name','food_type_id','food_cost_per_ounce','food_cost_p
 	$result = mysql_query("SELECT * FROM $table WHERE $where ORDER BY -price_per_ounce");
 	while ($row = mysql_fetch_array($result)) {
 			echo "<tr>";
-			echo "<td>{$row['name']}</td>";
+			echo "<td><a href=\"food.php?name={$row['name']}\">{$row['name']}</a></td>";
 			echo "<td>{$row['price_per_ounce']}</td>";
 			echo "<td>{$row['price_per_pound']}</td>";
 			echo "</tr>";
@@ -95,8 +95,8 @@ else{
 <form method="post">
 	name: <input type="text" name="add_food_name"><br>
 	type: <input type="text" name="add_food_type"><br>
-	cost: <input type="text" name="add_food_cost_per_ounce"><br>
-	days: <input type="text" name="add_food_cost_per_pound"><br>
+	cost($ per ounce): <input type="text" name="add_food_cost_per_ounce"><br>
+	cost($ per pound): <input type="text" name="add_food_cost_per_pound"><br>
 	<input type="submit" value="Submit">
 </form>
 
